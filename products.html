@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <!-- font awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- tailwind and daisyUi -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="navbar bg-base-100 shadow-sm ">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="-1"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="text-blue-600">products</a></li>
+                    <li><a>About</a></li>
+                    <li><a>Contact Us</a></li>
+                </ul>
+            </div>
+            <a class="text-blue-600 font-semibold text-xl">SwiftCart</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li class=''><a href="index.html">Home</a></li>
+                <li class="text-blue-600 "><a>products</a></li>
+                <li><a>About</a></li>
+                <li><a>Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <a class="btn"><i class="fa-solid fa-cart-plus"></i></a>
+        </div>
+    </div>
+    <section class="p-10">
+        <h1 class="text-4xl text-center font-semibold p-10">Our Products</h1>
+        <div class="md:flex items-center justify-center gap-2">
+            <button onclick=loadAllProduct() class="btn btn-primary rounded-xl">All</button>
+            <button class="btn ">men's clothing</button>
+            <button class="btn ">women clothing</button>
+            <button class="btn">jewelery</button>
+            <button class="btn">electronics</button>
+        </div>
+    </section>
+    <section id="products-container" class=" grid justify-center md:ml-20 mb-5 p-2 grid-cols-1 md:grid-cols-4 gap-5">
+        
+    </section>
+    <footer class="bg-gray-700 p-10">
+        <div class="flex flex-col md:flex-row gap-10 justify-between ">
+            <div class="space-y-5">
+                <h1 class="text-blue-600 font-semibold text-lg">SwiftCart</h1>
+                <p class="text-gray-300">your one-stop shop for all your fashion<br>and lifestyle needs.Quality
+                    products, <br>fast delivery and excellent services</p>
+            </div>
+            <div class="space-y-5">
+                <h1 class="text-gray-300 text-lg">Quick Link</h1>
+                <h1 class="text-gray-300">Home</h1>
+                <h1 class="text-gray-300">Products</h1>
+                <h1 class="text-gray-300">About</h1>
+                <h1 class="text-gray-300">Contact-Us</h1>
+            </div>
+            <div class="space-y-5">
+                <h1 class="text-gray-300 text-lg">Support</h1>
+                <h1 class="text-gray-300">Faq</h1>
+                <h1 class="text-gray-300">Shipping</h1>
+                <h1 class="text-gray-300">Returns</h1>
+                <h1 class="text-gray-300">Privacy Policy</h1>
+            </div>
+            <div class="space-y-5">
+                <h1 class="text-gray-300 text-lg">SUBSCRIBE TO OUR NEWSLETTER</h1>
+                <p class=" text-gray-300">The latest news,article and resources<br> sent to your inbox weekly.</p>
+                <div class="flex gap-2 flex-col md:flex-row">
+                    <input class="p-2 text-gray-500 bg-white rounded-md" type="email" placeholder="Enter your email">
+                    <button class="btn btn-primary">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <hr class="p-4 mt-5 ">
+        <div class="flex justify-between flex-col md:flex-row space-y-4">
+            <div>
+
+                <p class="text-gray-300">Copyright © 2025 - All right reserved by swiftCard</p>
+
+            </div>
+            <div class="space-x-5">
+                <i class="fa-brands fa-github"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-instagram"></i>
+
+            </div>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
