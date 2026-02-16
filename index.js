@@ -24,14 +24,37 @@ const displayAllProduct = (products) => {
                 <p class="truncate"> ${product.description} </p>
                 <h1 class="font-bold text-lg">$ ${product.price}</h1>
                 <div class="card-actions justify-between">
-                    <div class="btn"><i class="fa-regular fa-eye"></i>Details</div>
-                    <div class=" btn btn-primary"></i><i class="fa-solid fa-cart-plus"></i> Add</div>
+                    <button onClick= "loadDetails(${product.id})" class="btn"><i class="fa-regular fa-eye"></i>Details</button>
+                    <button class=" btn btn-primary"></i><i class="fa-solid fa-cart-plus"></i> Add</button>
                 </div>
             </div>
         </div>
      `
         productsContainer.appendChild(productCard)
     })
+}
+
+// details-Button
+
+const loadDetails = (id) => {
+    fetch(`https://fakestoreapi.com/products/${id}`)
+        .then(res => res.json())
+        .then(details => displayDetails(details))
+}
+
+const displayDetails = (details) => {
+    const detailsContainer = document.getElementById("details-container")
+    const detailsCard = document.createElement("div")
+    detailsCard.innerHTML=`
+    <h3 class="text-lg font-bold">Title: ${details.title}</h3>
+                <p class="py-4 "><span class="font-bold text-lg">Description:</span> ${details.description}</p>
+                <h1 class="p-2 font-bold text-lg"><span class="font-bold text-lg">Price:</span> $ ${details.price}</h1>
+    
+    `
+
+    detailsContainer.appendChild(detailsCard)
+    document.getElementById("my_modal_5").showModal()
+
 }
 
 //  single category
@@ -61,8 +84,8 @@ const displaySingleCategory = (data) => {
                 <p class="truncate"> ${single.description} </p>
                 <h1 class="font-bold text-lg">$ ${single.price}</h1>
                 <div class="card-actions justify-between">
-                    <div class="btn"><i class="fa-regular fa-eye"></i>Details</div>
-                    <div class=" btn btn-primary"></i><i class="fa-solid fa-cart-plus"></i> Add</div>
+                    <button onClick = "loadDetails(${single.id})" class="btn"><i class="fa-regular fa-eye"></i>Details</button>
+                    <button class=" btn btn-primary"></i><i class="fa-solid fa-cart-plus"></i> Add</button>
                 </div>
             </div>
         </div>

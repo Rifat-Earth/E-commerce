@@ -16,10 +16,10 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <!-- tailwind and daisyUi -->
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
-    
+
+
 </head>
 
 <body>
@@ -57,15 +57,32 @@
     </div>
     <section class="p-10">
         <h1 class="text-4xl text-center font-semibold p-10">Our Products</h1>
-        <div  class="md:flex items-center justify-center gap-2">
-            <button onclick = loadAllProduct() class="btn btn-primary rounded-xl">All</button>
+        <div class="md:flex items-center justify-center gap-2">
+            <button onclick=loadAllProduct() class="btn btn-primary rounded-xl">All</button>
             <div id="category-container" class="ml-4 space-x-4">
 
             </div>
         </div>
     </section>
     <section id="products-container" class=" grid justify-center md:ml-20 mb-5 p-2 grid-cols-1 md:grid-cols-4 gap-5">
-        
+
+    </section>
+    <section class="" >
+
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box h-auto" id="details-container">
+                
+                <div class="modal-action flex justify-start">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn btn-primary">Close Modal</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
     </section>
     <footer class="bg-gray-700 p-10">
         <div class="flex flex-col md:flex-row gap-10 justify-between ">
@@ -113,7 +130,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="index.js"></script>
 </body>
 
