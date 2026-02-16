@@ -45,11 +45,19 @@ const loadDetails = (id) => {
 const displayDetails = (details) => {
     const detailsContainer = document.getElementById("details-container")
     const detailsCard = document.createElement("div")
-    detailsCard.innerHTML=`
+    detailsCard.innerHTML = `
     <h3 class="text-lg font-bold">Title: ${details.title}</h3>
-                <p class="py-4 "><span class="font-bold text-lg">Description:</span> ${details.description}</p>
+               <div class="py-4 "> <p ><span class="font-bold text-lg">Description:</span> ${details.description}</p>
+               </div>
                 <h1 class="p-2 font-bold text-lg"><span class="font-bold text-lg">Price:</span> $ ${details.price}</h1>
     
+                
+                <div class="modal-action flex justify-between ">
+                <button class= "btn btn-primary" > Buy Now</button>
+                    <form method="dialog">
+                        <button class="btn btn-primary">Close Modal</button>
+                    </form>
+                </div>
     `
 
     detailsContainer.appendChild(detailsCard)
