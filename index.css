@@ -2,3 +2,11 @@
     font-family: "Poppins", sans-serif;
 };
 
+.all-btn{
+    color: rgb(43, 43, 237);
+}
+
+.active{
+    background-color: #422AD5;
+    color: white;
+}

@@ -18,7 +18,7 @@
     <!-- tailwind and daisyUi -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+     <link rel="stylesheet" href="index.css">
 
 </head>
 
@@ -57,15 +57,18 @@
     </div>
     <section class="p-10">
         <h1 class="text-4xl text-center font-semibold  p-10">Our Products</h1>
-        <div class="md:flex items-center justify-center gap-2">
-            <button onclick=loadAllProduct() class="btn btn-primary rounded-xl">All</button>
-            <div id="category-container" class="ml-4 space-x-4">
+        <div class="flex flex-wrap items-center justify-center gap-2">
+            <button id="all-products" onclick=loadAllProduct() class=" active-btn p-2 btn text-black border-blue-600 rounded-xl">All</button>
+            <div id="category-container" class="flex flex-wrap justify-center gap-2">
 
             </div>
         </div>
     </section>
     <section id="products-container" class=" grid justify-center md:ml-20 mb-5 p-2 grid-cols-1 md:grid-cols-4 gap-5">
-
+        
+    </section>
+    <section id="spinner" class="flex justify-center items-center py-10 hidden">
+        <span class="loading loading-bars loading-xl"></span>
     </section>
     <section class="" >
 
@@ -79,7 +82,7 @@
         </dialog>
 
     </section>
-    <footer class="bg-gray-700 p-10">
+    <footer class="bg-gray-700  md:ml-0 p-10  text-center md:text-left">
         <div class="flex flex-col md:flex-row gap-10 justify-between ">
             <div class="space-y-5">
                 <h1 class="text-blue-600 font-semibold text-lg">SwiftCart</h1>
@@ -117,10 +120,10 @@
 
             </div>
             <div class="space-x-5">
-                <i class="fa-brands fa-github"></i>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-linkedin-in"></i>
-                <i class="fa-brands fa-instagram"></i>
+               <a href=""><i class="fa-brands fa-github"></i></a> 
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
 
             </div>
         </div>

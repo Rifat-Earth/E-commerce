@@ -1,11 +1,38 @@
+// spinner
+const manageSpinner =(status)=>{
+    if(status == true){
+        document.getElementById("spinner").classList.remove("hidden")
+        document.getElementById("products-container").classList.add("hidden")
+    }
+    else{
+      document.getElementById("products-container").classList.remove("hidden")
+      document.getElementById("spinner").classList.add("hidden")
+    }
+}
+// remove active
+const removeActive = () => {
+    const activeBtn = document.querySelectorAll(".active-btn")
+    activeBtn.forEach((active) => active.classList.remove("active"))
+}
+
+
 // all product
 const loadAllProduct = () => {
+    manageSpinner(true)
     fetch('https://fakestoreapi.com/products')
         .then(res => res.json())
-        .then(data => displayAllProduct(data))
+        .then(data =>{ 
+            const allBtn =document.getElementById("all-products")
+           
+            allBtn.classList.add("active")
+           
+            displayAllProduct(data)
+             manageSpinner(false)})
+         
 }
 
 const displayAllProduct = (products) => {
+   
     const productsContainer = document.getElementById("products-container")
     productsContainer.innerHTML = "";
 
@@ -32,6 +59,7 @@ const displayAllProduct = (products) => {
      `
         productsContainer.appendChild(productCard)
     })
+    
 }
 
 // details-Button
@@ -68,9 +96,14 @@ const displayDetails = (details) => {
 //  single category
 
 const loadSingleCategory = (category) => {
+    manageSpinner(true)
     fetch(`https://fakestoreapi.com/products/category/${category}`)
         .then(res => res.json())
-        .then(data => displaySingleCategory(data))
+        .then(data => {
+            displaySingleCategory(data)
+            manageSpinner(false)
+        })
+        
 }
 
 const displaySingleCategory = (data) => {
@@ -104,13 +137,15 @@ const displaySingleCategory = (data) => {
 
 }
 
-
-
 //all category
 const loadCategory = () => {
     fetch(`https://fakestoreapi.com/products/categories`)
         .then(res => res.json())
-        .then(data => displayCategory(data))
+        .then(data => {
+            // const categoryBtn = document.getElementById(`category-btn-${category}`)
+            // removeActive();
+            // categoryBtn.classList.add("active")
+            displayCategory(data)})
 }
 
 const displayCategory = (categories) => {
@@ -119,7 +154,7 @@ const displayCategory = (categories) => {
     for (let category of categories) {
         const categoryBtn = document.createElement("span")
         categoryBtn.innerHTML = `
-        <button id="category-btn" class="p-2 btn text-black border-blue-600 rounded-xl">
+        <button id = "category-btn" class="active-btn p-2 btn text-black border-blue-600 rounded-xl">
         ${category}
         </button>
         `
