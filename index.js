@@ -34,7 +34,48 @@ const displayAllProduct = (products) => {
     })
 }
 
-// category
+//  single category
+
+const loadSingleCategory = (category) => {
+    fetch(`https://fakestoreapi.com/products/category/${category}`)
+        .then(res => res.json())
+        .then(data => displaySingleCategory(data))
+}
+
+const displaySingleCategory = (data) => {
+    const productsContainer = document.getElementById("products-container")
+    productsContainer.innerHTML = "";
+
+    data.forEach(single => {
+        const productCard = document.createElement("div")
+        productCard.innerHTML = `
+     <div class="card bg-base-100 w-76  h-120 shadow-lg">
+            <figure>
+                <img class="w-52 h-64" src= "${single.image}"/>
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title justify-between">
+                    ${single.category}
+                    <div class="badge badge-secondary"><i class="fa-regular fa-star"></i> ${single.rating.rate}</div>
+                </h2>
+                <p class="truncate"> ${single.description} </p>
+                <h1 class="font-bold text-lg">$ ${single.price}</h1>
+                <div class="card-actions justify-between">
+                    <div class="btn"><i class="fa-regular fa-eye"></i>Details</div>
+                    <div class=" btn btn-primary"></i><i class="fa-solid fa-cart-plus"></i> Add</div>
+                </div>
+            </div>
+        </div>
+     `
+        productsContainer.appendChild(productCard)
+    })
+
+
+}
+
+
+
+//all category
 const loadCategory = () => {
     fetch(`https://fakestoreapi.com/products/categories`)
         .then(res => res.json())
@@ -45,9 +86,13 @@ const displayCategory = (categories) => {
     const categoryContainer = document.getElementById("category-container")
     categoryContainer.innerHTML = "";
     for (let category of categories) {
-        const categoryBtn = document.createElement("button")
-        categoryBtn.innerHTML = `${category}`
-        categoryBtn.style.cssText = 'padding: 10px 20px; background-color: #f0f0f0; border: 1px solid black; border-radius: 16px; cursor: pointer;';
+        const categoryBtn = document.createElement("span")
+        categoryBtn.innerHTML = `
+        <button id="category-btn" class="p-2 btn text-black border-blue-600 rounded-xl">
+        ${category}
+        </button>
+        `
+        categoryBtn.addEventListener("click", () => loadSingleCategory(category));
         categoryContainer.appendChild(categoryBtn)
     }
 }
