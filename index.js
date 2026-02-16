@@ -1,16 +1,17 @@
-const loadAllProduct = ()=>{
-    fetch ('https://fakestoreapi.com/products')
-    .then(res=>res.json())
-    .then(data=>displayAllProduct(data))
+// all product
+const loadAllProduct = () => {
+    fetch('https://fakestoreapi.com/products')
+        .then(res => res.json())
+        .then(data => displayAllProduct(data))
 }
 
-const displayAllProduct =(products)=>{
- const productsContainer =document.getElementById("products-container")
-  productsContainer.innerHTML = "";
+const displayAllProduct = (products) => {
+    const productsContainer = document.getElementById("products-container")
+    productsContainer.innerHTML = "";
 
-  products.forEach(product=>{
-    const productCard = document.createElement("div")
-     productCard.innerHTML = `
+    products.forEach(product => {
+        const productCard = document.createElement("div")
+        productCard.innerHTML = `
      <div class="card bg-base-100 w-76  h-120 shadow-lg">
             <figure>
                 <img class="w-52 h-64" src= "${product.image}"/>
@@ -29,19 +30,26 @@ const displayAllProduct =(products)=>{
             </div>
         </div>
      `
-    productsContainer.appendChild(productCard)
-  })
+        productsContainer.appendChild(productCard)
+    })
 }
 
 // category
-const loadCategory = ()=>{
-    fetch("https://fakestoreapi.com/products/categories")
-    .then(res=>res.json())
-    .then(data=>displayCategory(data))
+const loadCategory = () => {
+    fetch(`https://fakestoreapi.com/products/categories`)
+        .then(res => res.json())
+        .then(data => displayCategory(data))
 }
 
-const displayCategory =(categories)=>{
-    console.log(categories)
+const displayCategory = (categories) => {
+    const categoryContainer = document.getElementById("category-container")
+    categoryContainer.innerHTML = "";
+    for (let category of categories) {
+        const categoryBtn = document.createElement("button")
+        categoryBtn.innerHTML = `${category}`
+        categoryBtn.style.cssText = 'padding: 10px 20px; background-color: #f0f0f0; border: 1px solid black; border-radius: 16px; cursor: pointer;';
+        categoryContainer.appendChild(categoryBtn)
+    }
 }
 
 loadCategory()

@@ -56,12 +56,11 @@
     </div>
     <section class="p-10">
         <h1 class="text-4xl text-center font-semibold p-10">Our Products</h1>
-        <div class="md:flex items-center justify-center gap-2">
-            <button onclick=loadAllProduct() class="btn btn-primary rounded-xl">All</button>
-            <button class="btn ">men's clothing</button>
-            <button class="btn ">women clothing</button>
-            <button class="btn">jewelery</button>
-            <button class="btn">electronics</button>
+        <div  class="md:flex items-center justify-center gap-2">
+            <button onclick = loadAllProduct() class="btn btn-primary rounded-xl">All</button>
+            <div id="category-container" class="ml-4 space-x-4">
+
+            </div>
         </div>
     </section>
     <section id="products-container" class=" grid justify-center md:ml-20 mb-5 p-2 grid-cols-1 md:grid-cols-4 gap-5">
